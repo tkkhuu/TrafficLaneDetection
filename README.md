@@ -40,7 +40,6 @@ After the camera has been calibrated, the pipeline for finding traffic lane on a
 - Find lanes
 - Fit polynomial
 - Measure curvature radius
-- Transform back to original view for visualization
 
 ## Undistort Image
 After camera calibration, the input image first has to be undistorted
@@ -56,6 +55,16 @@ There are also a lot of other stuffs in the image beside traffic lanes (trees, o
 
 This involves picking 4 points that cover the current lane form the original image and 4 points in the output image in which where we want the lane to be. The output image would look like the following
 An assumption I made while picking the 4 points is that the camera is always in the center of the lanes.
+
+These are the points I picked:
+
+| Source        | Destination   | 
+|:-------------:|:-------------:| 
+| 240, 680      | 240, 680      | 
+| 1040, 680     | 1040, 680     |
+| 590, 450      | 240, 0        |
+| 690, 450      | 1040, 0       |
+
 ![alt text][bev_tf]
 
 ## Find Lanes
@@ -77,12 +86,13 @@ At this point we have 4 binary channels that find lanes, I added these channels 
 
 The binary summation output image was returned.
 
-![alt text][fine_lane]
+![alt text][find_lane]
 
 ## Fit Polynomial
 Once the binary image has been found, I performed a sliding window search to find points correspond to the left and right lane. I first created a histogram accross the x axis of the images. The I kept the 2 position with the most responses.
 These are the starting points of the traffic lanes. I find all the points that correspond to the left and right lane. I then fit two second order polynomial lines on these two set of points.
 
+![alt text][fit_poly]
 
 ## Measure Curvature
 The curvature at a given point on the polynomial can be calculated using the formula:
@@ -99,9 +109,12 @@ y = frame.shape[0]
 
 I first converted form pixel to real word space (in meters). Then I calculated the curve using the above formula.
 
+![alt text][curvature]
+
 [undistort_chessboard]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/undistort_chessboard.png "Undistort chessboard"
 [undistort_img]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/undistort_img.png "Undistort scene"
 [bev_tf]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/bev_tf.png "Birds Eye View transform"
-[fine_lane]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/fine_lane.png "Lane Detection"
-
+[find_lane]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/find_lane.png "Lane Detection"
+[fit_poly]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/fit_poly.png "Fit polynomial"
+[curvature]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/curvature.png "Curvature measure"
 

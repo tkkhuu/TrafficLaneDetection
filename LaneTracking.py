@@ -229,6 +229,7 @@ class LaneDetection():
         unwarped_img = cv2.warpPerspective(out_img, self._inv_M_perspective, img_size)
         result = cv2.addWeighted(np.uint8(frame), 1, np.uint8(unwarped_img), 0.3, 0)
         
+        # y value closest to car
         y_eval = np.max(ploty)
         
         # Define conversions in x and y from pixels space to meters
@@ -270,15 +271,15 @@ class LaneDetection():
 def main():
     camera = Camera()
     
-    camera.Calibrate('../camera_cal/', (9, 6), filetype='jpg')
+    camera.Calibrate('./camera_cal/', (9, 6), filetype='jpg')
     
     lane_detection = LaneDetection(camera)
     
-    test_img = mpimg.imread('../test_images/test2.jpg')
+    #test_img = mpimg.imread('../test_images/test2.jpg')
     
-    out_img = lane_detection.TrackLanesImg(test_img, False)
+    #out_img = lane_detection.TrackLanesImg(test_img, False)
     
-    lane_detection.TrackLanesVideo('../project_video.mp4', './output_video.mp4')
+    lane_detection.TrackLanesVideo('./project_video.mp4', './output_video.mp4')
     
 if __name__ == '__main__': main()
         
