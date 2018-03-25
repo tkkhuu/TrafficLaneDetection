@@ -32,6 +32,20 @@ distorted_img = cv2.imread('test_img.jpg')
 undistorted_img = camera.UndistortImage(distorted_img)
 ```
 
+# Detection Pipeline
+After the camera has been calibrated, the pipeline for finding traffic lane on an image is as follow:
+- Undistort the image using the camera matrix
+- Transform the view of the road into bird's eye view perspective
+- Find lanes
+- Fit polynomial
+- Measure curvature radius
+- Transform back to original view for visualization
+
+## Undistort Image
+After camera calibration, the input image first has to be undistorted
+```
+undistorted_img = camera.UndistortImage(distorted_img)
+```
 
 
 
