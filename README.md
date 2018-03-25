@@ -2,8 +2,8 @@
 
 This is a project from the Udacity Self-Driving Car Nanodegree that builds a pipeline to detect and track traffic lanes on the highway
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=wRnFrW5-yrg
-" target="_blank"><img src="http://img.youtube.com/vi/wRnFrW5-yrg/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=FFQ6cRQblwY
+" target="_blank"><img src="http://img.youtube.com/vi/FFQ6cRQblwY/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Camera Calibration
