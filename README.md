@@ -116,6 +116,7 @@ The pipeline has succesfully detect and track lanes in a video stream. The most 
 Although careful tuning was made, the pipeline failed to work in bright scenario when the yellow and white lines blend into the street, or when the street has different patches after construction.
 
 ![alt text][bright_condition]
+
 ![alt text][patched_street]
 
 The gradient does not respond well when the lines blend into the street. It also responded very clearly in noisy scenario such as patched street. I would try to threshold on color value (yellow and white) instead of magnitude of gradient and research on other techniques that don't use gradient.
@@ -127,4 +128,6 @@ The gradient does not respond well when the lines blend into the street. It also
 [find_lane]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/find_lane.png "Lane Detection"
 [fit_poly]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/fit_poly.png "Fit polynomial"
 [curvature]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/curvature.png "Curvature measure"
+[bright_condition]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/bright_condition.png "Bright Condition"
+[patched_street]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/patched_street.png "Patched Street"
 
