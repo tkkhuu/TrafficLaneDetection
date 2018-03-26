@@ -279,7 +279,7 @@ def main():
     
     #out_img = lane_detection.TrackLanesImg(test_img, False)
     
-    lane_detection.TrackLanesVideo('./project_video.mp4', './output_video.mp4')
+    lane_detection.TrackLanesVideo('./challenge_video.mp4', './output_challenge_video.mp4')
     
 if __name__ == '__main__': main()
         

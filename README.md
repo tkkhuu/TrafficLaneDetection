@@ -111,6 +111,16 @@ I first converted form pixel to real word space (in meters). Then I calculated t
 
 ![alt text][curvature]
 
+# Discussion
+The pipeline has succesfully detect and track lanes in a video stream. The most challenging part was to find the right combination for detecting lane edges and tuning the appropariate threshold.
+Although careful tuning was made, the pipeline failed to work in bright scenario when the yellow and white lines blend into the street, or when the street has different patches after construction.
+
+![alt text][bright_condition]
+![alt text][patched_street]
+
+The gradient does not respond well when the lines blend into the street. It also responded very clearly in noisy scenario such as patched street. I would try to threshold on color value (yellow and white) instead of magnitude of gradient and research on other techniques that don't use gradient.
+
+
 [undistort_chessboard]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/undistort_chessboard.png "Undistort chessboard"
 [undistort_img]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/undistort_img.png "Undistort scene"
 [bev_tf]: https://raw.github.com/tkkhuu/TrafficLaneDetection/master/README_files/bev_tf.png "Birds Eye View transform"
